@@ -31,3 +31,12 @@ Choice.objects.filter(question__pub_date__year=current_year)
 ```
 
 Note how we have `<fk_field_name>__<field_name>__<predicate>`
+
+More info:
+- Relations: https://docs.djangoproject.com/en/3.0/ref/models/relations/
+- Querying on fields: https://docs.djangoproject.com/en/3.0/topics/db/queries/#field-lookups-intro
+- Full on database docs https://docs.djangoproject.com/en/3.0/topics/db/queries/
+
+# Info on urls
+
+https://docs.djangoproject.com/en/3.0/topics/http/urls/
