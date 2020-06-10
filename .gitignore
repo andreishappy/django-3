@@ -1,5 +1,6 @@
 .venv
 .mypy_cache
+postgres-data
 
 ## 👇 All the below stolen from https://github.com/jpadilla/django-project-template/blob/master/.gitignore
 ### OSX ###

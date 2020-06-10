@@ -1,0 +1,33 @@
+# Production Readiness
+
+Project is not production ready.
+
+Now’s a good time to note: don’t use this server in anything resembling a production environment. It’s intended only for use while developing. (We’re in the business of making Web frameworks, not Web servers.)
+
+# Env vars
+
+Allow passing env vars for the database connection
+
+# Dry run of migrations
+
+```
+docker-compose run app python manage.py sqlmigrate <app> <migration_number>
+```
+
+# `__str__` on Models
+
+It gives you a human readable version of the model printed in the shell and in the Admin console
+
+# `timezone`
+
+Look more into what `timezone.now()` does in Django
+
+# Query through foreign key
+
+In this example `Choice` has a foreign key to `Question`. To find all the `Choice`s that are linked to a question that was published in the current year we can do
+
+```
+Choice.objects.filter(question__pub_date__year=current_year)
+```
+
+Note how we have `<fk_field_name>__<field_name>__<predicate>`

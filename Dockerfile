@@ -3,9 +3,8 @@ FROM python:3.7
 COPY ./requirements.txt  /requirements.txt
 RUN pip install --no-cache-dir -r /requirements.txt
 
-RUN mkdir /code/
-WORKDIR /code/
-ADD . /code/
+ADD ./mysite /mysite/
+WORKDIR /mysite/
 
 # uWSGI will listen on this port
 EXPOSE 8000
@@ -15,3 +14,5 @@ EXPOSE 8000
 ARG APP_USER=appuser
 RUN groupadd -r ${APP_USER} && useradd --no-log-init -r -g ${APP_USER} ${APP_USER}
 USER ${APP_USER}:${APP_USER}
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
