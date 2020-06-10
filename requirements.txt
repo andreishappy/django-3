@@ -1,0 +1,7 @@
+# Used for development
+black
+mypy
+
+# Used for production
+Django==3.0.7
+
