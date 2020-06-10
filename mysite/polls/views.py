@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, Http404
 from polls.models import Question
 
 # import the logging library
@@ -16,7 +16,11 @@ def index(request: HttpRequest) -> HttpResponse:
 
 
 def detail(request: HttpRequest, *, question_id: int) -> HttpResponse:
-    return HttpResponse("You're looking at question %s." % question_id)
+    try:
+        question = Question.objects.get(pk=question_id)
+    except Question.DoesNotExist:
+        raise Http404(f"Question with id {question_id} does not exist")
+    return render(request, "polls/question.html", {"question": question})
 
 
 def results(request: HttpRequest, *, question_id: int) -> HttpResponse:
