@@ -56,7 +56,7 @@ https://docs.djangoproject.com/en/3.0/howto/static-files/
 https://docs.djangoproject.com/en/3.0/ref/contrib/staticfiles/
 Deployment https://docs.djangoproject.com/en/3.0/howto/static-files/deployment/
 
-# Development command for docker
+# Start command for gunicorn, does not serve static files
 ```
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "mysite.wsgi"]
 ```
