@@ -17,5 +17,9 @@
     ".mypy_cache": true,
     ".pytest_cache": true
   },
+  "files.associations": {
+    "**/templates/*.html": "django-html",
+    "**/templates/*": "django-txt"
+  },
   "editor.formatOnSaveTimeout": 3000
 }

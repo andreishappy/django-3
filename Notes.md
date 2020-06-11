@@ -40,3 +40,8 @@ More info:
 # Info on urls
 
 https://docs.djangoproject.com/en/3.0/topics/http/urls/
+
+# More about templates
+
+https://docs.djangoproject.com/en/3.0/topics/templates/
+
