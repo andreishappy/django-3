@@ -45,3 +45,12 @@ https://docs.djangoproject.com/en/3.0/topics/http/urls/
 
 https://docs.djangoproject.com/en/3.0/topics/templates/
 
+# More about testing
+
+https://docs.djangoproject.com/en/3.0/topics/testing/
+
+# More info on static files
+
+https://docs.djangoproject.com/en/3.0/howto/static-files/
+https://docs.djangoproject.com/en/3.0/ref/contrib/staticfiles/
+Deployment https://docs.djangoproject.com/en/3.0/howto/static-files/deployment/
