@@ -4,9 +4,9 @@ Project is not production ready.
 
 Now’s a good time to note: don’t use this server in anything resembling a production environment. It’s intended only for use while developing. (We’re in the business of making Web frameworks, not Web servers.)
 
-# Env vars
+# TO DO
 
-Allow passing env vars for the database connection
+- remove View from view classes and use namespaces
 
 # Dry run of migrations
 
