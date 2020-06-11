@@ -44,6 +44,7 @@ https://docs.djangoproject.com/en/3.0/topics/http/urls/
 # More about templates
 
 https://docs.djangoproject.com/en/3.0/topics/templates/
+How loading happens: https://docs.djangoproject.com/en/3.0/topics/templates/#template-loading
 
 # More about testing
 
@@ -54,3 +55,8 @@ https://docs.djangoproject.com/en/3.0/topics/testing/
 https://docs.djangoproject.com/en/3.0/howto/static-files/
 https://docs.djangoproject.com/en/3.0/ref/contrib/staticfiles/
 Deployment https://docs.djangoproject.com/en/3.0/howto/static-files/deployment/
+
+# Development command for docker
+```
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+```
