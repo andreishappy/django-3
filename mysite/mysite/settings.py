@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from typing import List
+from mysite.environment import environment
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "=*njxxx%fjvcwardqah7ue#3xo7&7ff+$-ls@w&l87*rw1if)g"
+SECRET_KEY = environment.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,14 +77,13 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # TODO: take these as env vars
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "example",
-        "HOST": "db",
-        "PORT": "5432",
+        "NAME": environment.POSTGRES_DB,
+        "USER": environment.POSTGRES_USER,
+        "PASSWORD": environment.POSTGRES_PASSWORD,
+        "HOST": environment.POSTGRES_HOST,
+        "PORT": environment.POSTGRES_PORT,
     }
 }
 
