@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpRequest, Http404, HttpResponseRedirect
 from django.urls import reverse
+from django.views import generic
 from polls.models import Question, Choice
 
 # import the logging library
@@ -10,20 +11,22 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def index(request: HttpRequest) -> HttpResponse:
-    latest_question_list = Question.objects.order_by("-pub_date")[:5]
-    context = {"latest_question_list": latest_question_list}
-    return render(request, "polls/index.html", context)
+class IndexView(generic.ListView):
+    template_name = "polls/index.html"
+    context_object_name = "latest_question_list"
+
+    def get_queryset(self):
+        return Question.objects.order_by("-pub_date")[:5]
 
 
-def detail(request: HttpRequest, *, question_id: int) -> HttpResponse:
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/question.html", {"question": question})
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = "polls/question.html"
 
 
-def results(request: HttpRequest, *, question_id: int) -> HttpResponse:
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/results.html", {"question": question})
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = "polls/results.html"
 
 
 def vote(request: HttpRequest, *, question_id: int) -> HttpResponse:
