@@ -3,8 +3,9 @@ FROM python:3.7
 COPY ./requirements.txt  /requirements.txt
 RUN pip install --no-cache-dir -r /requirements.txt
 
-ADD ./mysite /mysite/
-WORKDIR /mysite/
+ADD ./mysite /app/mysite/
+ADD ./mypy.ini /app/mypy.ini
+WORKDIR /app/mysite/
 
 # uWSGI will listen on this port
 EXPOSE 8000
